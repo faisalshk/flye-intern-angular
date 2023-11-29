@@ -14,11 +14,7 @@
     class="flex w-[30%] justify-between border-2 rounded-xl p-4 border-[cadetblue]"
   >
     <div class="rounded-full overflow-hidden w-[10vw] h-[10vw]">
-      <img
-        class="w-full"
-        src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        alt="profile"
-      />
+      <img class="w-full" [src]="data.avatar_url" alt="profile" />
     </div>
 
     <div class="w-[40%]">
@@ -35,8 +31,8 @@
     <div class="card" *ngFor="let item of repos">
       <h2>{{ item.name }}</h2>
       <p>{{ item.description || "-----" }}</p>
-      <div *ngFor="let topic of item.topics">
-        <span>{{ topic }}</span>
+      <div>
+        <span *ngFor="let topic of item.topics">{{ topic }}</span>
         <!-- <span>angular</span>
         <span>angular js</span>
         <span>reactjs</span> -->
@@ -52,8 +48,8 @@
         <span>angular js</span>
         <span>reactjs</span>
       </div>
-    </div>
-
+    </div> -->
+    <!--
     <div class="card">
       <h2>Heroes</h2>
       <p>Heroes description goes here</p>

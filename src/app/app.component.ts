@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {
-    this.data = this.apiService.getUser('johnpapa').subscribe(
+    this.data = this.apiService.getUser('faisalshk').subscribe(
       (response) => {
         console.log(response);
         this.data = response;
@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
       }
     );
     this.repos = this.apiService
-      .getUserRepos('johnpapa')
+      .getUserRepos('faisalshk')
       .subscribe((response) => {
         console.log(response);
         this.repos = response;

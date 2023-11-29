@@ -15,7 +15,7 @@ export class ApiService {
   }
   getUserRepos(githubUsername: string) {
     return this.httpClient.get(
-      `https://api.github.com/users/johnpapa/repos?per_page=100`
+      `https://api.github.com/users/${githubUsername}/repos?per_page=100`
     );
   }
 
