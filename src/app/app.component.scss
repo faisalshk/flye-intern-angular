@@ -2,7 +2,7 @@
   padding: 1rem;
   width: 48%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -17,7 +17,8 @@
 
   div {
     display: flex;
-    gap: 4%;
+    column-gap: 4%;
+    row-gap:18px;
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
