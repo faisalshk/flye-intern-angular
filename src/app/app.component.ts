@@ -4,14 +4,28 @@ import { ApiService } from './services/api.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit{
-  constructor(
-    private apiService: ApiService
-  ) {}
+export class AppComponent implements OnInit {
+  data: any;
+  repos: any;
+  constructor(private apiService: ApiService) {}
 
   ngOnInit() {
-    this.apiService.getUser('johnpapa').subscribe(console.log);
+    this.data = this.apiService.getUser('johnpapa').subscribe(
+      (response) => {
+        console.log(response);
+        this.data = response;
+      },
+      (error) => {
+        console.error('Error fetching data:', error);
+      }
+    );
+    this.repos = this.apiService
+      .getUserRepos('johnpapa')
+      .subscribe((response) => {
+        console.log(response);
+        this.repos = response;
+      });
   }
 }

@@ -1,38 +1,56 @@
 <div class="flex justify-center items-center py-[5vw] flex-col gap-6">
-
   <div class="flex gap-4">
-    
-    <input placeholder="Search github account..." class=" w-full border-2 rounded-xl p-2 text-xl" type="text">
-    <button class="bg-[cadetblue] p-2 text-[#fff] rounded-xl px-8 text-xl">Search</button>
+    <input
+      placeholder="Search github account..."
+      class="w-full border-2 rounded-xl p-2 text-xl"
+      type="text"
+    />
+    <button class="bg-[cadetblue] p-2 text-[#fff] rounded-xl px-8 text-xl">
+      Search
+    </button>
   </div>
 
-
-  <div class="flex w-[30%] justify-between border-2 rounded-xl p-4 border-[cadetblue]">
+  <div
+    class="flex w-[30%] justify-between border-2 rounded-xl p-4 border-[cadetblue]"
+  >
     <div class="rounded-full overflow-hidden w-[10vw] h-[10vw]">
-      <img class="w-full" src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="profile">
-
+      <img
+        class="w-full"
+        src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        alt="profile"
+      />
     </div>
 
     <div class="w-[40%]">
-      <h1 class="font-bold">John Doe</h1>
-      <p class="font-semibold" class="text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus omnis rerum porro minima tenetur.</p>
-      <h4 class="font-semibold">Orlando</h4>
-      <span class="font-semibold">Twitter:  http://localhost:4200/</span>
-
+      <h1 class="font-bold">{{ data.name }}</h1>
+      <p class="font-semibold" class="text-sm">
+        {{ data.bio }}
+      </p>
+      <h4 class="font-semibold">{{ data.location }}</h4>
+      <span class="font-semibold">Twitter: @{{ data.twitter_username }}</span>
     </div>
   </div>
-
-
 
   <div class="w-[70%] flex flex-wrap gap-4">
-    <div class="card">
+    <div class="card" *ngFor="let item of repos">
+      <h2>{{ item.name }}</h2>
+      <p>{{ item.description || "-----" }}</p>
+      <div *ngFor="let topic of item.topics">
+        <span>{{ topic }}</span>
+        <!-- <span>angular</span>
+        <span>angular js</span>
+        <span>reactjs</span> -->
+      </div>
+    </div>
+
+    <!-- <div class="card">
       <h2>Heroes</h2>
       <p>Heroes description goes here</p>
       <div>
         <span>javascript</span>
-         <span>angular</span>
-          <span>angular js</span>
-           <span>reactjs</span>
+        <span>angular</span>
+        <span>angular js</span>
+        <span>reactjs</span>
       </div>
     </div>
 
@@ -41,9 +59,9 @@
       <p>Heroes description goes here</p>
       <div>
         <span>javascript</span>
-         <span>angular</span>
-          <span>angular js</span>
-           <span>reactjs</span>
+        <span>angular</span>
+        <span>angular js</span>
+        <span>reactjs</span>
       </div>
     </div>
 
@@ -52,9 +70,9 @@
       <p>Heroes description goes here</p>
       <div>
         <span>javascript</span>
-         <span>angular</span>
-          <span>angular js</span>
-           <span>reactjs</span>
+        <span>angular</span>
+        <span>angular js</span>
+        <span>reactjs</span>
       </div>
     </div>
 
@@ -63,9 +81,9 @@
       <p>Heroes description goes here</p>
       <div>
         <span>javascript</span>
-         <span>angular</span>
-          <span>angular js</span>
-           <span>reactjs</span>
+        <span>angular</span>
+        <span>angular js</span>
+        <span>reactjs</span>
       </div>
     </div>
 
@@ -74,23 +92,10 @@
       <p>Heroes description goes here</p>
       <div>
         <span>javascript</span>
-         <span>angular</span>
-          <span>angular js</span>
-           <span>reactjs</span>
+        <span>angular</span>
+        <span>angular js</span>
+        <span>reactjs</span>
       </div>
-    </div>
-
-    <div class="card">
-      <h2>Heroes</h2>
-      <p>Heroes description goes here</p>
-      <div>
-        <span>javascript</span>
-         <span>angular</span>
-          <span>angular js</span>
-           <span>reactjs</span>
-      </div>
-    </div>
+    </div> -->
   </div>
- 
-
-  </div>
+</div>
