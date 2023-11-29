@@ -9,10 +9,11 @@ import { ApiService } from './services/api.service';
 export class AppComponent implements OnInit {
   data: any;
   repos: any;
+  username: string = '';
   constructor(private apiService: ApiService) {}
 
-  ngOnInit() {
-    this.data = this.apiService.getUser('faisalshk').subscribe(
+  getUsername() {
+    this.data = this.apiService.getUser(this.username).subscribe(
       (response) => {
         console.log(response);
         this.data = response;
@@ -22,10 +23,12 @@ export class AppComponent implements OnInit {
       }
     );
     this.repos = this.apiService
-      .getUserRepos('faisalshk')
+      .getUserRepos(this.username)
       .subscribe((response) => {
         console.log(response);
         this.repos = response;
       });
   }
+
+  ngOnInit() {}
 }

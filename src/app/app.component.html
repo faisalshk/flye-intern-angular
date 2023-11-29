@@ -4,8 +4,12 @@
       placeholder="Search github account..."
       class="w-full border-2 rounded-xl p-2 text-xl"
       type="text"
+      [(ngModel)]="username"
     />
-    <button class="bg-[cadetblue] p-2 text-[#fff] rounded-xl px-8 text-xl">
+    <button
+      class="bg-[cadetblue] p-2 text-[#fff] rounded-xl px-8 text-xl"
+      (click)="getUsername()"
+    >
       Search
     </button>
   </div>
@@ -32,7 +36,9 @@
       <h2>{{ item.name }}</h2>
       <p>{{ item.description || "-----" }}</p>
       <div>
-        <span *ngFor="let topic of item.topics">{{ topic }}</span>
+        <span class="gap-y-4" *ngFor="let topic of item.topics">{{
+          topic
+        }}</span>
         <!-- <span>angular</span>
         <span>angular js</span>
         <span>reactjs</span> -->
