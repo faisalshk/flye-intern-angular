@@ -13,11 +13,11 @@ export class ApiService {
       `https://api.github.com/users/${githubUsername}`
     );
   }
+
+  // C
   getUserRepos(githubUsername: string) {
     return this.httpClient.get(
       `https://api.github.com/users/${githubUsername}/repos?per_page=100`
     );
   }
-
-  // implement getRepos method by referring to the documentation. Add proper types for the return type and params
 }

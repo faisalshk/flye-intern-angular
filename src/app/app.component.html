@@ -17,11 +17,11 @@
   <div
     class="flex w-[30%] justify-between border-2 rounded-xl p-4 border-[cadetblue]"
   >
-    <div class="rounded-full overflow-hidden w-[10vw] h-[10vw]">
+    <div class="rounded-full overflow-hidden w-[10vw] h-[10vw]" *ngIf="data">
       <img class="w-full" [src]="data.avatar_url" alt="profile" />
     </div>
 
-    <div class="w-[40%]">
+    <div class="w-[40%]" *ngIf="data">
       <h1 class="font-bold">{{ data.name }}</h1>
       <p class="font-semibold" class="text-sm">
         {{ data.bio }}
@@ -32,7 +32,13 @@
   </div>
 
   <div class="w-[70%] flex flex-wrap gap-4">
-    <div class="card" *ngFor="let item of repos">
+    <div
+      class="card"
+      *ngFor="
+        let item of repos
+          | paginate : { itemsPerPage: itemsPerPageSize, currentPage: page }
+      "
+    >
       <h2>{{ item.name }}</h2>
       <p>{{ item.description || "-----" }}</p>
       <div>
@@ -44,60 +50,8 @@
         <span>reactjs</span> -->
       </div>
     </div>
-
-    <!-- <div class="card">
-      <h2>Heroes</h2>
-      <p>Heroes description goes here</p>
-      <div>
-        <span>javascript</span>
-        <span>angular</span>
-        <span>angular js</span>
-        <span>reactjs</span>
-      </div>
-    </div> -->
-    <!--
-    <div class="card">
-      <h2>Heroes</h2>
-      <p>Heroes description goes here</p>
-      <div>
-        <span>javascript</span>
-        <span>angular</span>
-        <span>angular js</span>
-        <span>reactjs</span>
-      </div>
+    <div>
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
-
-    <div class="card">
-      <h2>Heroes</h2>
-      <p>Heroes description goes here</p>
-      <div>
-        <span>javascript</span>
-        <span>angular</span>
-        <span>angular js</span>
-        <span>reactjs</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Heroes</h2>
-      <p>Heroes description goes here</p>
-      <div>
-        <span>javascript</span>
-        <span>angular</span>
-        <span>angular js</span>
-        <span>reactjs</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Heroes</h2>
-      <p>Heroes description goes here</p>
-      <div>
-        <span>javascript</span>
-        <span>angular</span>
-        <span>angular js</span>
-        <span>reactjs</span>
-      </div>
-    </div> -->
   </div>
 </div>
